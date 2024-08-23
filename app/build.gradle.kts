@@ -1,7 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.compose.compiler)
+    kotlin("kapt")
+    alias(libs.plugins.hilt)
 }
+
 
 android {
     namespace = "com.example.cleanarchitecturenote"
@@ -52,7 +56,6 @@ android {
 dependencies {
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
@@ -66,4 +69,32 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //Hilt
+    implementation (libs.hilt.android)
+    implementation (libs.hilt.navigation.compose)
+    implementation (libs.hilt.lifecycle.viewmodel)
+
+    kapt(libs.hilt.android.compiler)
+    kapt(libs.hilt.compiler)
+
+    // Retrofit
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.okhttp)
+    implementation (libs.logging.interceptor)
+
+    // Coroutine Lifecycle Scopes
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    implementation (libs.androidx.lifecycle.runtime.ktx.v231)
+    // Coroutines
+    implementation (libs.jetbrains.kotlinx.coroutines.core)
+    implementation (libs.kotlinx.coroutines.android)
+
+    implementation (libs.accompanist.flowlayout)
+    //room
+    implementation (libs.room.runtime)
+    //kotlin extensions and coroutine support for room
+    implementation (libs.room.ktx)
+    kapt (libs.room.compiler)
 }
