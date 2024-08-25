@@ -10,9 +10,8 @@
 .DS_Store
 /build
 .idea
-rishikesh.txt
+/rishikesh.txt
 /captures
 .externalNativeBuild
 .cxx
-local.properties
 
