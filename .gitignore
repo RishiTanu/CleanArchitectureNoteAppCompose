@@ -9,8 +9,10 @@
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
-/rishikesh
+.idea
+rishikesh.txt
 /captures
 .externalNativeBuild
 .cxx
 local.properties
+
