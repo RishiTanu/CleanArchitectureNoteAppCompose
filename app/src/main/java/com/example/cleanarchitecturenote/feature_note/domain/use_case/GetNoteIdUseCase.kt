@@ -4,7 +4,7 @@ import com.example.cleanarchitecturenote.feature_note.domain.model.Note
 import com.example.cleanarchitecturenote.feature_note.domain.repository.NoteRepository
 
 
-class GetNotUseCase(
+class GetNoteIdUseCase(
     private val noteRepository: NoteRepository
 ) {
     suspend operator fun invoke(id:Int) : Note?{

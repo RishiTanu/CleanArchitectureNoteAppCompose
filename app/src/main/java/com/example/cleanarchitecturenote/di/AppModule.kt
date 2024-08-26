@@ -7,16 +7,18 @@ import com.example.cleanarchitecturenote.feature_note.data.repository.NoteReposi
 import com.example.cleanarchitecturenote.feature_note.domain.repository.NoteRepository
 import com.example.cleanarchitecturenote.feature_note.domain.use_case.AddNoteUseCase
 import com.example.cleanarchitecturenote.feature_note.domain.use_case.DeleteNoteUseCase
-import com.example.cleanarchitecturenote.feature_note.domain.use_case.GetNoteUseCase
+import com.example.cleanarchitecturenote.feature_note.domain.use_case.GetNoteIdUseCase
+import com.example.cleanarchitecturenote.feature_note.domain.use_case.GetNotesUseCase
 import com.example.cleanarchitecturenote.feature_note.domain.use_case.NoteUseCases
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 
 @Module
-@InstallIn(Singleton::class)
+@InstallIn(SingletonComponent::class)
 class AppModule {
 
     @Provides
@@ -40,9 +42,10 @@ class AppModule {
     @Singleton
     fun providesNoteUseCases(repository: NoteRepository): NoteUseCases {
         return NoteUseCases(
-            getNoteUseCase = GetNoteUseCase(repository),
-            deleteNoteUseCase = DeleteNoteUseCase((repository)),
-            addNote = AddNoteUseCase(noteRepository = repository)
+            getNoteUseCase = GetNotesUseCase(repository),
+            deleteNoteUseCase = DeleteNoteUseCase(repository),
+            addNote = AddNoteUseCase(noteRepository = repository),
+            getNoteIdUseCase = GetNoteIdUseCase(noteRepository = repository)
         )
     }
 }

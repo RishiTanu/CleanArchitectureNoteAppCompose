@@ -7,7 +7,7 @@ import com.example.cleanarchitecturenote.feature_note.domain.util.OrderType
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class GetNoteUseCase(
+class GetNotesUseCase(
     private val repository: NoteRepository
 ) {
     operator fun invoke(
