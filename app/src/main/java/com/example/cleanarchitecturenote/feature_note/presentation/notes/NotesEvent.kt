@@ -3,7 +3,7 @@ package com.example.cleanarchitecturenote.feature_note.presentation.notes
 import com.example.cleanarchitecturenote.feature_note.domain.model.Note
 import com.example.cleanarchitecturenote.feature_note.domain.util.NoteOrder
 
-sealed class NotesEvent {
+abstract class NotesEvent {
     data class Order(val noteOrder: NoteOrder) : NotesEvent()
     data class DeleteNote(val note: Note) : NotesEvent()
     data object RestoreNote : NotesEvent()
